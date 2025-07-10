@@ -198,7 +198,7 @@ body {
 }
 
 /* 모바일에서 세로 모드일 때만 가로 모드로 강제 회전 - 개선된 방법 */
-@media (max-width: 1024px) and (orientation: portrait) and (max-height: 600px) {
+@media (max-width: 1024px) and (orientation: portrait) {
   .modal {
     transform: rotate(90deg);
     transform-origin: 50% 50%;
