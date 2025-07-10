@@ -12,7 +12,7 @@ const stepDescriptions = {
     "2. 설정 앱을 실행합니다.",
     "3. 설정 화면에서 태블릿 정보를 선택합니다.",
     "4. 소프트웨어 정보를 선택합니다.",
-    "5. 안드로이드 버전을 확인합니다. <span style='color: #dc3545; font-weight: bold;'>안드로이드 버전이 10 버전이 아닐 경우</span>, 담당 선생님 혹은 밀크T 고객센터로 연락 부탁드립니다."
+    "5. 안드로이드 버전을 확인합니다. <span style='color: #dc3545; font-weight: bold;'>🎱 안드로이드 버전이 10 버전이 아닐 경우 🎱</span>, 담당 선생님 혹은 밀크T 고객센터로 연락 부탁드립니다."
   ],
   1: [ // 런처 설치 (20개)
     "1. 화면을 아래에서 위로 끌어올려 앱 목록 화면으로 이동합니다.",
@@ -41,15 +41,15 @@ const stepDescriptions = {
 // 이미지 아래 추가 설명 (특정 단계만)
 const additionalNotes = {
   1: { // 런처 설치
-    2: "Chrome(크롬) 앱을 실행할 경우 'Chrome에 오신 것을 환영합니다'라는 창이 노출될 수 있습니다.<br>먼저 '사용 통계와 비정상 종료 보고서를 Google로 전송하여 Chrome을 개선하는 데 동참하세요' 체크박스의 체크를 해제해주세요.<br>이후 '동의하고 계속'을 터치하시면 '동기화를 사용하시겠습니까?'라고 묻는 창이 보입니다.<br><span style='color: #dc3545; font-weight: bold;'>동기화 여부는 밀크T 학습에 영향이 없습니다. '계정 추가'를 터치하여 구글 계정을 동기화해주셔도 되고, '아니요, 괜찮습니다.'를 터치하여도 무방합니다.</span>",
-    3: "주소를 입력하면 별도 페이지 이동 없이 파일이 다운로드됩니다. 다운로드시 크롬에서 권한 허용을 요청하는 창이 노출될 수 있습니다. <span style='color: #dc3545; font-weight: bold;'>정상적인 동작이니 '권한 업데이트'나 '허용', '계속'등을 눌러 진행해주세요.</span>",
-    5: "'취소'와 '설정'이 보이지 않고 '확인'만 노출될 경우, 패밀리링크 앱에 의해 설치가 차단된 상황입니다. 학부모님의 휴대폰 앱에서 감독중지를 요청하여 학습생을 감독 대상에서 제외시켜 주세요. 이후 내 파일 앱에서 밀크T 런처 apk 파일을 터치하면 설치 진행 가능합니다.<br><span style='color: #dc3545; font-weight: bold;'>*패밀리링크의 감독 중지 방법은 밀크T에서 안내가 어렵습니다. 만약 감독 중지 진행이 어려우신 경우 구글 측으로 문의해주시기를 부탁드립니다.</span>",
+    2: "Chrome(크롬) 앱을 최초 실행할 경우 'Chrome에 오신 것을 환영합니다'라는 창이 노출될 수 있습니다.<br>먼저 '사용 통계와 비정상 종료 보고서를 Google로 전송하여 Chrome을 개선하는 데 동참하세요' 체크박스의 체크를 해제해주세요.<br>이후 '동의하고 계속'을 터치하시면 '동기화를 사용하시겠습니까?'라고 묻는 창이 보입니다.<br><span style='color: #dc3545; font-weight: bold; display: block;'>동기화 여부는 밀크T 학습에 영향이 없습니다. '계정 추가'를 터치하여 구글 계정을 동기화해주시거나, '아니요, 괜찮습니다.'를 터치하여 진행 부탁드립니다.</span>",
+    3: "주소를 입력하면 별도 페이지 이동 없이 파일이 다운로드됩니다. 다운로드시 크롬에서 권한 허용을 요청하는 창이 노출될 수 있습니다. <br><span style='color: #dc3545; font-weight: bold; display: block;'>정상적인 동작이니 '권한 업데이트'나 '허용', '계속'등을 눌러 진행해주세요.</span>",
+    5: "'취소'와 '설정'이 보이지 않고 '확인'만 노출될 경우, 패밀리링크 앱에 의해 설치가 차단된 상황입니다. 학부모님의 휴대폰 앱에서 감독중지를 요청하여 학습생을 감독 대상에서 제외시켜 주세요. 이후 내 파일 앱에서 밀크T 런처 apk 파일을 터치하면 설치 진행 가능합니다.<br><span style='color: #dc3545; font-weight: bold; background-color: #fff3cd; padding: 2px 4px; border-radius: 3px; display: block; margin-top: 5px;'><span>*패밀리링크의 감독 중지 방법은 밀크T에서 안내가 어렵습니다. 만약 감독 중지 진행이 어려우신 경우 구글 측으로 문의해주시기를 부탁드립니다.</span></span>",
     10: "밀크T 학습을 위한 필수 권한을 허용하는 것으로, 임의로 학습 데이터를 삭제하거나 기기 설정을 변경하는 것은 아닙니다.",
     13: "학습생의 실제 학년에 맞는 서비스를 선택해주세요.(예를 들어, 학습생이 6학년이라면 밀크T 초등 선택)",
     14: "'다음'이 보이지 않을 경우 와이파이 연결이 되지 않았거나 배터리가 30% 미만인 상황입니다. 충전기를 연결하면 배터리 30%가 되지 않더라도 '다음'버튼이 활성화됩니다.",
     16: "인증이 너무 오래 걸리거나 실패했다고 나온다면 와이파이 공유기 재부팅을 부탁드립니다.",
-    18: "밀크T 학습을 위한 필수 권한을 허용하는 것으로, 임의로 학습 데이터를 삭제하거나 기기 설정을 변경하는 것은 아닙니다.",
-    19: "밀크T와 함께해주셔서 감사합니다. 만약 설치 진행이 어려우시거나 정상적으로 설치가 되지 않는 경우에는, <span style='color: #dc3545; font-weight: bold;'>담당 선생님 혹은 밀크T 고객센터로 연락 부탁드립니다.</span>"
+    18: "밀크T 학습을 위한 필수 권한을 허용하는 것으로, 임의로 학습 데이터를 삭제하거나 기기 설정을 변경하는 것는 아닙니다.",
+    19: "밀크T와 함께해주셔서 감사합니다. 만약 설치 진행이 어려우시거나 정상적으로 설치가 되지 않는 경우에는, <br><span style='color: #dc3545; font-weight: bold; display: block;'>담당 선생님 혹은 밀크T 고객센터로 연락 부탁드립니다.</span>"
   }
 };
 
@@ -73,6 +73,14 @@ function showImageLoadingState(imgElement) {
 
 // 페이지 로드 시 초기 설정
 window.addEventListener('load', function() {
+  // URL에서 현재 탭 정보 확인
+  const urlParams = new URLSearchParams(window.location.search);
+  const tabParam = urlParams.get('tab');
+  if (tabParam === '1') {
+    currentTabIndex = 1;
+    showTab(1);
+  }
+  
   generateScrollImages();
   updateNavigation();
   setupBackButtonHandler();
@@ -91,10 +99,8 @@ function setupBackButtonHandler() {
       showTab(0);
       // 히스토리에 현재 상태 추가
       history.pushState({ tab: 0 }, '', '');
-    } else {
-      // 안드로이드 버전 확인 탭에서 뒤로가기를 누르면 기종 선택 페이지로 이동
-      location.href = 'index.html';
     }
+    // 안드로이드 버전 확인 탭에서는 뒤로가기 무시
   });
 }
 
@@ -163,10 +169,14 @@ function showTab(index) {
   // 네비게이션 업데이트
   updateNavigation();
   
-  // 히스토리 상태 업데이트
+  // URL 업데이트 (새로고침 시 현재 탭 유지)
+  const url = new URL(window.location);
   if (index === 1) {
-    // 런처 설치 탭으로 이동할 때 히스토리에 상태 추가
-    history.pushState({ tab: 1 }, '', '');
+    url.searchParams.set('tab', '1');
+    history.pushState({ tab: 1 }, '', url);
+  } else {
+    url.searchParams.delete('tab');
+    history.replaceState({ tab: 0 }, '', url);
   }
   
   // 페이지 이동 시 즉시 최상단으로 스크롤
@@ -174,37 +184,30 @@ function showTab(index) {
 }
 
 function updateNavigation() {
-  const backBtn = document.getElementById('backBtn');
+  const topNav = document.querySelector('.top-navigation');
   const nextBtn = document.getElementById('nextBtn');
   
   if (currentTabIndex === 0) {
-    // 1. 안드로이드 버전 확인 탭
-    backBtn.textContent = '← 기종 선택으로';
+    // 1. 안드로이드 버전 확인 탭 - 오른쪽 정렬, 다음 버튼만
+    topNav.classList.remove('left-align');
     nextBtn.textContent = '다음 단계로 →';
     nextBtn.style.display = 'block';
   } else {
-    // 2. 런처 설치 탭
-    backBtn.textContent = '← 이전 단계로';
-    nextBtn.style.display = 'none';
-  }
-}
-
-function handleBackClick() {
-  if (currentTabIndex === 0) {
-    // 1번 탭에서: 기종 선택 페이지로 이동
-    location.href = 'index.html';
-  } else {
-    // 2번 탭에서: 1번 탭으로 이동하면서 최상단으로 스크롤
-    showTab(0);
+    // 2. 런처 설치 탭 - 왼쪽 정렬, 이전 버튼으로 변경
+    topNav.classList.add('left-align');
+    nextBtn.textContent = '← 이전 단계로';
+    nextBtn.style.display = 'block';
   }
 }
 
 function handleNextClick() {
   if (currentTabIndex === 0) {
-    // 1번 탭에서: 2번 탭으로 이동하면서 최상단으로 스크롤
+    // 1번 탭에서: 2번 탭으로 이동
     showTab(1);
+  } else {
+    // 2번 탭에서: 1번 탭으로 이동 (이전 단계로 기능)
+    showTab(0);
   }
-  // 2번 탭에서는 다음 버튼이 없으므로 이 함수가 호출되지 않음
 }
 
 // 모달 관련 변수
