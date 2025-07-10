@@ -246,11 +246,11 @@ left: 50%;
 transform: translate(-50%, -50%);
 }
 
-/* 모달 닫기 버튼 - 이미지에 바짝 붙임 */
+/* 모달 닫기 버튼 - 이미지에 더 가깝게 */
 .close-btn {
 position: absolute;
-top: 7.5%;
-right: 7.5%;
+top: calc(7.5% + 5px);
+right: calc(7.5% + 5px);
 font-size: 24px;
 color: white;
 cursor: pointer;
@@ -265,7 +265,7 @@ justify-content: center;
 touch-action: manipulation; /* 터치 최적화 */
 }
 
-/* 모달 네비게이션 버튼 - 이미지에 바짝 붙임 */
+/* 모달 네비게이션 버튼 - 이미지에 더 가깝게 */
 .modal-nav {
 position: absolute;
 top: 50%;
@@ -289,11 +289,11 @@ touch-action: manipulation; /* 터치 최적화 */
 }
 
 .modal-nav.prev {
-left: 7.5%;
+left: calc(7.5% - 25px);
 }
 
 .modal-nav.next {
-right: 7.5%;
+right: calc(7.5% - 25px);
 }
 
 .modal-nav:hover {
