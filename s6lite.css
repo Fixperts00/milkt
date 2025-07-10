@@ -12,14 +12,18 @@ body {
   right: 0;
   z-index: 100;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 12px 15px;
   background: #ffffff;
   border-bottom: 1px solid #ddd;
   gap: 10px;
-
   height: 48px;
+}
+
+/* 런처 설치 탭에서는 왼쪽 정렬 */
+.top-navigation.left-align {
+  justify-content: flex-start;
 }
 
 .back-btn, .next-btn {
@@ -58,7 +62,6 @@ body {
   border-bottom: 1px solid #ccc;
   margin: 0;
   padding: 0;
-
 }
 
 .mobile-tab-menu .tab {
@@ -324,6 +327,11 @@ body.modal-open {
     max-width: 800px;
     left: 50%;
     transform: translateX(-50%);
+    justify-content: flex-end;
+  }
+
+  .top-navigation.left-align {
+    justify-content: flex-start;
   }
 
   .tab-content {
