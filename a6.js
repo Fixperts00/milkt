@@ -253,27 +253,21 @@ function closeModal() {
   document.body.style.top = '';
   document.body.style.width = '';
   
-  // 현재 모달에서 보고 있던 이미지 위치로 정확히 이동
+  // 현재 모달에서 보고 있던 이미지에 맞는 스크롤 위치 계산
   const container = document.getElementById(`scrollImages${modalTabIndex}`);
   const imageWrappers = container.querySelectorAll('.image-wrapper');
   
   if (imageWrappers[modalSlideIndex - 1]) {
     const targetImageWrapper = imageWrappers[modalSlideIndex - 1];
+    const rect = targetImageWrapper.getBoundingClientRect();
+    const absoluteTop = rect.top + window.pageYOffset;
     
-    // 이미지가 화면에 완전히 표시되도록 위치 계산
-    setTimeout(() => {
-      const rect = targetImageWrapper.getBoundingClientRect();
-      const absoluteTop = rect.top + window.pageYOffset;
-      
-      // 헤더 높이(130px)를 고려하여 조정
-      const headerHeight = 130;
-      const targetScrollPosition = Math.max(0, absoluteTop - headerHeight - 20);
-      
-      window.scrollTo({
-        top: targetScrollPosition,
-        behavior: 'smooth'
-      });
-    }, 50);
+    // 헤더 높이(130px)를 고려하여 정확한 위치 계산
+    const headerHeight = 130;
+    const targetScrollPosition = Math.max(0, absoluteTop - headerHeight - 20);
+    
+    // 즉시 해당 위치로 이동 (애니메이션 없음)
+    window.scrollTo(0, targetScrollPosition);
   } else {
     // 기본 스크롤 위치로 복원
     window.scrollTo(0, scrollPosition);
