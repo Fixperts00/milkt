@@ -19,6 +19,8 @@ background: #ffffff;
 border-bottom: 1px solid #ddd;
 gap: 10px;
 height: 48px;
+width: 100%;
+box-sizing: border-box;
 }
 
 /* 런처 설치 탭에서는 왼쪽 정렬 */
@@ -50,10 +52,10 @@ color: #212529;
 transform: scale(0.98);
 }
 
-/* 탭 메뉴도 고정으로 변경하여 네비게이션 바로 아래 배치 */
+/* 탭 메뉴도 고정으로 변경하여 네비게이션 바로 아래 배치 - 여백 제거하고 배경 강화 */
 .mobile-tab-menu {
 position: fixed;
-top: 73px;
+top: 48px;
 left: 0;
 right: 0;
 z-index: 99;
@@ -62,6 +64,8 @@ background: #f1f1f1;
 border-bottom: 1px solid #ccc;
 margin: 0;
 padding: 0;
+width: 100%;
+box-sizing: border-box;
 }
 
 .mobile-tab-menu .tab {
@@ -124,11 +128,11 @@ flex: 1;
 font-weight: 500;
 }
 
-/* 본문 콘텐츠에 상단 여백 추가 (고정 헤더 공간 확보) */
+/* 본문 콘텐츠에 상단 여백 추가 (고정 헤더 공간 확보) - 여백 조정 */
 .tab-content {
 display: none;
 padding: 20px;
-padding-top: 130px;
+padding-top: 97px; /* 48px(네비) + 49px(탭메뉴) = 97px로 정확히 계산 */
 }
 
 .tab-content.active {
@@ -320,14 +324,16 @@ width: 100% !important;
 height: 100% !important;
 }
 
-/* PC 최적화 */
+/* PC 최적화 - 헤더 전체 너비 적용 및 여백 조정 */
 @media (min-width: 1025px) {
 .top-navigation {
   padding: 10px 15px;
-  max-width: 800px;
-  left: 50%;
-  transform: translateX(-50%);
   justify-content: flex-end;
+  /* PC에서도 전체 너비 유지 */
+  max-width: none;
+  left: 0;
+  right: 0;
+  transform: none;
 }
 
 .top-navigation.left-align {
@@ -337,7 +343,12 @@ height: 100% !important;
 .tab-content {
   max-width: 800px;
   margin: 0 auto;
-  padding-top: 130px;
+  padding-top: 97px; /* 모바일과 동일한 여백 */
+}
+
+.mobile-tab-menu {
+  /* PC에서도 전체 너비 */
+  max-width: none;
 }
 
 .mobile-tab-menu .tab {
