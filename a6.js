@@ -214,7 +214,7 @@ let modalDevice = 'a6';
 let modalTabIndex = 0;
 let modalSlideIndex = 1;
 
-// 모달 함수들 - 스크롤 위치 저장/복원 기능 추가
+// 모달 함수들 - 스크롤 위치 저장/복원 기능 개선
 function openModal(device, tabIndex, slideIndex) {
   modalDevice = device;
   modalTabIndex = tabIndex;
@@ -245,7 +245,7 @@ function closeModal() {
   const modal = document.getElementById("imageModal");
   modal.style.display = "none";
   
-  // body 스크롤 복원 및 원래 스크롤 위치로 복귀
+  // body 스크롤 복원
   document.body.classList.remove('modal-open');
   document.body.style.overflow = '';
   document.documentElement.style.overflow = '';
@@ -253,8 +253,31 @@ function closeModal() {
   document.body.style.top = '';
   document.body.style.width = '';
   
-  // 저장된 스크롤 위치로 복원
-  window.scrollTo(0, scrollPosition);
+  // 현재 모달에서 보고 있던 이미지 위치로 정확히 이동
+  const container = document.getElementById(`scrollImages${modalTabIndex}`);
+  const imageWrappers = container.querySelectorAll('.image-wrapper');
+  
+  if (imageWrappers[modalSlideIndex - 1]) {
+    const targetImageWrapper = imageWrappers[modalSlideIndex - 1];
+    
+    // 이미지가 화면에 완전히 표시되도록 위치 계산
+    setTimeout(() => {
+      const rect = targetImageWrapper.getBoundingClientRect();
+      const absoluteTop = rect.top + window.pageYOffset;
+      
+      // 헤더 높이(130px)를 고려하여 조정
+      const headerHeight = 130;
+      const targetScrollPosition = Math.max(0, absoluteTop - headerHeight - 20);
+      
+      window.scrollTo({
+        top: targetScrollPosition,
+        behavior: 'smooth'
+      });
+    }, 50);
+  } else {
+    // 기본 스크롤 위치로 복원
+    window.scrollTo(0, scrollPosition);
+  }
 }
 
 function navigateModal(direction) {
@@ -271,24 +294,6 @@ function navigateModal(direction) {
   
   const modalImage = document.getElementById("modalImage");
   modalImage.src = getImageSrc(modalDevice, modalTabIndex, modalSlideIndex);
-  
-  // 현재 모달에서 보고 있는 이미지에 해당하는 스크롤 위치 계산 및 저장
-  updateScrollPositionForCurrentImage();
-}
-
-// 현재 모달 이미지에 해당하는 스크롤 위치를 계산하는 함수
-function updateScrollPositionForCurrentImage() {
-  const container = document.getElementById(`scrollImages${modalTabIndex}`);
-  const imageWrappers = container.querySelectorAll('.image-wrapper');
-  
-  if (imageWrappers[modalSlideIndex - 1]) {
-    const targetImageWrapper = imageWrappers[modalSlideIndex - 1];
-    const rect = targetImageWrapper.getBoundingClientRect();
-    const absoluteTop = rect.top + window.pageYOffset;
-    
-    // 화면 중앙에 오도록 조정 (화면 높이의 1/3 지점)
-    scrollPosition = Math.max(0, absoluteTop - (window.innerHeight / 3));
-  }
 }
 
 // ESC 키로 모달 닫기
