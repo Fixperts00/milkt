@@ -43,6 +43,7 @@ const stepDescriptions = {
 // 이미지 아래 추가 설명 (특정 단계만)
 const additionalNotes = {
   1: { // 런처 설치
+    2: "Chrome(크롬) 앱을 실행할 경우 'Chrome에 오신 것을 환영합니다'라는 창이 노출될 수 있습니다. <span style='color: #dc3545; font-weight: bold;'>먼저 '동의하고 계속'을 터치해주시고, 동기화는 하지 않으셔도 이용 가능합니다.</span>",
     3: "주소를 입력하면 별도 페이지 이동 없이 파일이 다운로드됩니다. 다운로드시 크롬에서 권한 허용을 요청하는 창이 노출될 수 있습니다. <span style='color: #dc3545; font-weight: bold;'>정상적인 동작이니 '권한 업데이트'나 '허용', '계속'등을 눌러 진행해주세요.</span>",
     6: "'취소'와 '설정'이 보이지 않고 '확인'만 노출될 경우, 패밀리링크 앱에 의해 설치가 차단된 상황입니다. 학부모님의 휴대폰 앱에서 감독중지를 요청하여 학습생을 감독 대상에서 제외시켜 주세요. 이후 내 파일 앱에서 밀크T 런처 apk 파일을 터치하면 설치 진행 가능합니다.<br><span style='color: #dc3545; font-weight: bold; background-color: #fff3cd; padding: 2px 4px; border-radius: 3px; vertical-align: middle;'><span style='vertical-align: middle;'>*</span>패밀리링크의 감독 중지 방법은 밀크T에서 안내가 어렵습니다. 만약 감독 중지 진행이 어려우신 경우 구글 측으로 문의해주시기를 부탁드립니다.</span>",
     11: "밀크T 학습을 위한 필수 권한을 허용하는 것으로, 임의로 학습 데이터를 삭제하거나 기기 설정을 변경하는 것은 아닙니다.",
@@ -105,6 +106,17 @@ function generateScrollImages() {
     container.innerHTML = '';
     const totalImages = tabImageCounts[tabIndex];
     
+    // 안드로이드 버전 확인 탭(첫 번째 탭)에만 버전 안내 메시지 추가
+    if (tabIndex === 0) {
+      const versionNotice = document.createElement('div');
+      versionNotice.className = 'version-notice';
+      versionNotice.innerHTML = `
+        <div class="notice-icon">!</div>
+        <div class="notice-text">밀크T는 안드로이드 6.0.1 버전에서만 구동이 가능합니다. 안드로이드 6.0.1 버전이 아닐 경우 정상적인 학습이 불가능하여 버전 확인이 필요합니다.</div>
+      `;
+      container.appendChild(versionNotice);
+    }
+    
     for (let i = 1; i <= totalImages; i++) {
       const imageWrapper = document.createElement('div');
       imageWrapper.className = 'image-wrapper';
@@ -158,6 +170,9 @@ function showTab(index) {
     // 런처 설치 탭으로 이동할 때 히스토리에 상태 추가
     history.pushState({ tab: 1 }, '', '');
   }
+  
+  // 페이지 이동 시 즉시 최상단으로 스크롤
+  window.scrollTo(0, 0);
 }
 
 function updateNavigation() {
@@ -181,14 +196,14 @@ function handleBackClick() {
     // 1번 탭에서: 기종 선택 페이지로 이동
     location.href = 'index.html';
   } else {
-    // 2번 탭에서: 1번 탭으로 이동
+    // 2번 탭에서: 1번 탭으로 이동하면서 최상단으로 스크롤
     showTab(0);
   }
 }
 
 function handleNextClick() {
   if (currentTabIndex === 0) {
-    // 1번 탭에서: 2번 탭으로 이동
+    // 1번 탭에서: 2번 탭으로 이동하면서 최상단으로 스크롤
     showTab(1);
   }
   // 2번 탭에서는 다음 버튼이 없으므로 이 함수가 호출되지 않음
