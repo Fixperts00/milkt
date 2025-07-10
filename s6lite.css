@@ -197,8 +197,8 @@ body {
   overflow: hidden;
 }
 
-/* 모바일에서 세로 모드일 때 가로 모드로 강제 회전 - 개선된 방법 */
-@media (max-width: 1024px) and (orientation: portrait) {
+/* 모바일에서 세로 모드일 때만 가로 모드로 강제 회전 - 개선된 방법 */
+@media (max-width: 1024px) and (orientation: portrait) and (max-height: 600px) {
   .modal {
     transform: rotate(90deg);
     transform-origin: 50% 50%;
@@ -208,6 +208,19 @@ body {
     top: 50%;
     margin-left: -50vh;
     margin-top: -50vw;
+  }
+}
+
+/* 자동회전 대응: 가로 모드에서는 회전 효과 제거 */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .modal {
+    transform: none;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    margin-left: 0;
+    margin-top: 0;
   }
 }
 
@@ -224,11 +237,11 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* 모달 닫기 버튼 - 개선된 위치 */
+/* 모달 닫기 버튼 - 이미지에 바짝 붙임 */
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 7.5%;
+  right: 7.5%;
   font-size: 24px;
   color: white;
   cursor: pointer;
@@ -243,7 +256,7 @@ body {
   touch-action: manipulation; /* 터치 최적화 */
 }
 
-/* 모달 네비게이션 버튼 - 개선된 위치와 크기 */
+/* 모달 네비게이션 버튼 - 이미지에 바짝 붙임 */
 .modal-nav {
   position: absolute;
   top: 50%;
@@ -267,11 +280,11 @@ body {
 }
 
 .modal-nav.prev {
-  left: 15px;
+  left: 7.5%;
 }
 
 .modal-nav.next {
-  right: 15px;
+  right: 7.5%;
 }
 
 .modal-nav:hover {
