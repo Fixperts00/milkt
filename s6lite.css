@@ -237,11 +237,11 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* 모달 닫기 버튼 - 이미지에 더 가깝게 */
+/* 모달 닫기 버튼 - 개선된 위치 */
 .close-btn {
   position: absolute;
-  top: calc(7.5% + 5px);
-  right: calc(7.5% + 5px);
+  top: 10px;
+  right: 15px;
   font-size: 24px;
   color: white;
   cursor: pointer;
@@ -256,7 +256,7 @@ body {
   touch-action: manipulation; /* 터치 최적화 */
 }
 
-/* 모달 네비게이션 버튼 - 이미지에 더 가깝게 */
+/* 모달 네비게이션 버튼 - 개선된 위치와 크기 */
 .modal-nav {
   position: absolute;
   top: 50%;
@@ -280,11 +280,11 @@ body {
 }
 
 .modal-nav.prev {
-  left: calc(7.5% - 25px);
+  left: 15px;
 }
 
 .modal-nav.next {
-  right: calc(7.5% - 25px);
+  right: 15px;
 }
 
 .modal-nav:hover {
