@@ -280,8 +280,8 @@ function getImageSrc(device, tabIndex, slideIndex) {
   if (device === 's6lite' && tabIndex === 0) {
     // S6 Lite 안드로이드 버전 확인 (5장)
     if (slideIndex === 1) {
-      // 1번 이미지는 adimage 레포 사용
-      return 'https://raw.githubusercontent.com/skyhigh79/adimage/main/s6_android_check_01.png';
+      // 1번 이미지는 s6 레포 사용 (런처 설치 탭과 동일하게 통일)
+      return 'https://raw.githubusercontent.com/skyhigh79/s6/main/s6_launcher_install_01.png';
     } else if (slideIndex === 3) {
       // 3번 이미지는 adimage 레포 사용
       return 'https://raw.githubusercontent.com/skyhigh79/adimage/main/s6_android_check_03.png';
